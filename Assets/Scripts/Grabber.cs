@@ -4,6 +4,8 @@ public class Grabber : MonoBehaviour {
 
     public Vector3 _relativePosition = new Vector3(0, 0, 0);
 
+    public float _forceMagnitue = 10f;
+
     private bool _objectInBounds = false;
 
     private int _numInBounds = 0;
@@ -22,6 +24,8 @@ public class Grabber : MonoBehaviour {
 
     private const string _dropAxis = "Fire2";
 
+    private const string _throwAxis = "Fire3";
+
     private bool _currentlyHolding = false;
     
     void Start() {
@@ -29,7 +33,7 @@ public class Grabber : MonoBehaviour {
     }
 
     void Update() {
-        
+        HandleInput();    
     }
 
     void OnTriggerEnter(Collider other) {
@@ -53,6 +57,8 @@ public class Grabber : MonoBehaviour {
         float grabAxis = Input.GetAxis(_inputAxis);
 
         float dropAxisValue = Input.GetAxis(_dropAxis);
+
+        float throwAxisValue = Input.GetAxis(_throwAxis);
         
         // handle button for picking up object
         if (grabAxis > 0) {
@@ -63,8 +69,15 @@ public class Grabber : MonoBehaviour {
 
         // handle button for dropping object
         if (dropAxisValue > 0) {
-            if (ObjectBeingHeld != null & _currentlyHolding) {
+            if (ObjectBeingHeld != null && _currentlyHolding) {
                 DropObject();
+            }
+        }
+
+        // handle button for throwing object
+        if (throwAxisValue > 0) {
+            if (ObjectBeingHeld != null && _currentlyHolding) {
+                ThrowObject();
             }
         }
     }
@@ -98,5 +111,23 @@ public class Grabber : MonoBehaviour {
 
         // release the reference
         _mostRecentObject = null;
+        ObjectBeingHeld = null;
+    }
+
+    private void ThrowObject() {
+        // direction we'll throw the object is the forward vector of the camera
+        Vector3 throwDirection = Camera.main.transform.forward.normalized;
+
+        // make it not kinematic
+        ObjectBeingHeld.GetComponent<Rigidbody>().isKinematic = false;
+
+        // apply force to the object
+        ObjectBeingHeld.GetComponent<Rigidbody>().AddForce(throwDirection * _forceMagnitue, ForceMode.Force);
+
+        _currentlyHolding = false;
+        
+        // release the references
+        _mostRecentObject = null;
+        ObjectBeingHeld = null;
     }
 }

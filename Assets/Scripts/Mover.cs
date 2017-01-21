@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -42,6 +41,21 @@ public class Mover : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		HandleInput();	
+	}
+
+	void OnCollisionEnter(Collision collision) {
+		if (collision.gameObject.tag == "Environment") {
+			// get highest contact point
+			float max = collision.contacts[0].point.y;
+			foreach (var contact in collision.contacts) {
+				if (contact.point.y > max) {
+					max = contact.point.y;
+				}
+			}
+
+			// set the position to the highest contact point with plane axes unchanged
+			transform.position = new Vector3(transform.position.x, max, transform.position.z);
+		}
 	}
 
 	private void HandleInput() {
