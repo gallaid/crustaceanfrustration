@@ -1,0 +1,4 @@
+Tags:
+    Player (player, obviously)
+    MainCamera (camera)
+    Stackable (objects which can be grabbed/thrown/stacked)
