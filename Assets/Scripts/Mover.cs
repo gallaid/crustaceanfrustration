@@ -2,77 +2,114 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Mover : MonoBehaviour {
+public class Mover : MonoBehaviour
+{
 
-	public float _velocity = 1;
+    public float _velocity = 1;
 
-	private enum MoveDirection {
-		Forward,
-		Back,
-		Left,
-		Right
-	}
+    private enum MoveDirection
+    {
+        Forward,
+        Back,
+        Left,
+        Right
+    }
 
-	private Dictionary<MoveDirection, Action> moveMap = new Dictionary<MoveDirection, Action>();
+    private Dictionary<MoveDirection, Action> moveMap = new Dictionary<MoveDirection, Action>();
 
-	// Use this for initialization
-	void Start () {
-		moveMap.Add(MoveDirection.Forward,
-		() => {
-			transform.position += (transform.forward * Time.deltaTime * _velocity);
-		});
-		
-		moveMap.Add(MoveDirection.Back,
-		() => {
-			transform.position += (-transform.forward * Time.deltaTime * _velocity);
-		});
-		
-		moveMap.Add(MoveDirection.Left,
-		() => {
-			transform.position += (-transform.right * Time.deltaTime * _velocity);
-		});
-		
-		moveMap.Add(MoveDirection.Right,
-		() => {
-			transform.position += (transform.right * Time.deltaTime * _velocity);
-		});
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		HandleInput();	
-	}
+    // Use this for initialization
+    void Start()
+    {
+        moveMap.Add(MoveDirection.Forward,
+        () =>
+        {
+            transform.position += (transform.forward * Time.deltaTime * _velocity);
+        });
 
-	void OnCollisionEnter(Collision collision) {
-		if (collision.gameObject.tag == "Environment") {
-			// get highest contact point
-			float max = collision.contacts[0].point.y;
-			foreach (var contact in collision.contacts) {
-				if (contact.point.y > max) {
-					max = contact.point.y;
-				}
-			}
+        moveMap.Add(MoveDirection.Back,
+        () =>
+        {
+            transform.position += (-transform.forward * Time.deltaTime * _velocity);
+        });
 
-			// set the position to the highest contact point with plane axes unchanged
-			transform.position = new Vector3(transform.position.x, max, transform.position.z);
-		}
-	}
+        moveMap.Add(MoveDirection.Left,
+        () =>
+        {
+            transform.position += (-transform.right * Time.deltaTime * _velocity);
+        });
 
-	private void HandleInput() {
-		var horizontal = Input.GetAxis("Horizontal");
-		var vertical = Input.GetAxis("Vertical");
-		if (horizontal > 0) {
-			moveMap[MoveDirection.Right]();
-		}
-		else if (horizontal < 0) {
-			moveMap[MoveDirection.Left]();
-		}
+        moveMap.Add(MoveDirection.Right,
+        () =>
+        {
+            transform.position += (transform.right * Time.deltaTime * _velocity);
+        });
+    }
 
-		if (vertical > 0) {
-			moveMap[MoveDirection.Forward]();
-		}
-		else if (vertical < 0) {
-			moveMap[MoveDirection.Back]();
-		}
-	}
+    // Update is called once per frame
+    void Update()
+    {
+        HandleInput();
+
+        if (transform.position.y < -3)
+        {
+            transform.position.Set(transform.position.x, 1, transform.position.z);
+        }
+    }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Environment")
+        {
+            // get highest contact point
+            float max = collision.contacts[0].point.y;
+            foreach (var contact in collision.contacts)
+            {
+                if (contact.point.y > max)
+                {
+                    max = contact.point.y;
+                }
+            }
+
+            // set the position to the highest contact point with plane axes unchanged
+            transform.position = new Vector3(transform.position.x, max, transform.position.z);
+        }
+    }
+
+    private void HandleInput()
+    {
+        var horizontal = Input.GetAxis("Horizontal");
+        var vertical = Input.GetAxis("Vertical");
+        if (horizontal > 0)
+        {
+            moveMap[MoveDirection.Right]();
+        }
+        else if (horizontal < 0)
+        {
+            moveMap[MoveDirection.Left]();
+        }
+
+        if (vertical > 0)
+        {
+            moveMap[MoveDirection.Forward]();
+        }
+        else if (vertical < 0)
+        {
+            moveMap[MoveDirection.Back]();
+        }
+
+        // rotate the player according to camera direction
+        Vector3 cameraDirection = Camera.main.transform.forward.normalized;
+        Vector3 playerDirection = Vector3.ProjectOnPlane(cameraDirection, transform.up).normalized;
+        float angleToRotate = Vector3.Angle(transform.forward, playerDirection);
+        Debug.Log(angleToRotate);
+        if (angleToRotate > 90)
+        {
+            Debug.Log("Rotating by" + (angleToRotate - 360));
+            transform.Rotate(transform.up, angleToRotate - 360, Space.World);
+        }
+        else
+        {
+            transform.Rotate(transform.up, angleToRotate, Space.World);
+        }
+    }
 }
