@@ -3,9 +3,15 @@ using UnityEngine;
 public class Grabber : MonoBehaviour
 {
 
+    bool _goingToThrow = false;
+
     public Vector3 _relativePosition = new Vector3(0, 0, 0);
 
     public float _forceMagnitue = 10f;
+
+    public float _accumulationSpeed = 10f;
+
+    private float _forceAccumulator = 0f;
 
     private bool _objectInBounds = false;
 
@@ -115,8 +121,22 @@ public class Grabber : MonoBehaviour
         {
             if (ObjectBeingHeld != null && _currentlyHolding)
             {
-                ThrowObject();
+                if (!_goingToThrow)
+                {
+                    _goingToThrow = true;
+                    _forceAccumulator = _forceMagnitue;
+                }
+                else
+                {
+                    _forceAccumulator += (Time.deltaTime * _accumulationSpeed);
+                }
             }
+        }
+
+        if (_goingToThrow && throwAxisValue == 0 && ObjectBeingHeld != null && _currentlyHolding)
+        {
+            ThrowObject();
+            _goingToThrow = false;
         }
     }
 
@@ -171,7 +191,7 @@ public class Grabber : MonoBehaviour
         ObjectBeingHeld.transform.parent = null;
 
         // apply force to the object
-        ObjectBeingHeld.GetComponent<Rigidbody>().AddForce(throwDirection * _forceMagnitue, ForceMode.Impulse);
+        ObjectBeingHeld.GetComponent<Rigidbody>().AddForce(throwDirection * _forceAccumulator, ForceMode.Impulse);
 
         _currentlyHolding = false;
 
