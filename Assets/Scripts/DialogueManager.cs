@@ -28,7 +28,6 @@ class DialogueManager : MonoBehaviour
 
         if (_timeSinceLastLine >= _currentDelay)
         {
-            Debug.Log("Playing dialogue");
             // play random dialogue line
             int randomIndex = UnityEngine.Random.Range(0, dialogueClips.Count);
             GetComponent<AudioSource>().clip = dialogueClips[randomIndex];
