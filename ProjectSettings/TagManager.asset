@@ -8,6 +8,8 @@ TagManager:
   - Environment
   - Stackable
   - WorldEnder
+  - DialogueManager
+  - SFXManager
   layers:
   - Default
   - TransparentFX

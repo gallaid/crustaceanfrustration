@@ -6,18 +6,24 @@ public class StackingObject : MonoBehaviour
 
     public float _timeToFreeze = 0.2f;
 
-    public GameObject dialogueManager;
-    public GameObject sfxManager;
+    private GameObject dialogueManager;
+    private GameObject sfxManager;
 
     // Use this for initialization
     void Start()
     {
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueManager");
+        sfxManager = GameObject.FindGameObjectWithTag("SFXManager");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (sfxManager == null || dialogueManager == null)
+        {
+            dialogueManager = GameObject.FindGameObjectWithTag("DialogueManager");
+            sfxManager = GameObject.FindGameObjectWithTag("SFXManager");
+        }
     }
 
     void OnCollisionEnter(Collision collision)
