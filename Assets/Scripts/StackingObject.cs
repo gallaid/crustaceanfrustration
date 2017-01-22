@@ -42,11 +42,15 @@ public class StackingObject : MonoBehaviour
                     collision.gameObject.GetComponent<Rigidbody>().constraints = newConstraints;
                 }
             };
+
             var timedAction = gameObject.AddComponent(typeof(TimedAction)) as TimedAction;
             timedAction._action = removeRigidBodyAction;
             timedAction.timer = _timeToFreeze;
 
-            sfxManager.GetComponent<SFXManager>().PlayRandomEffect();
+            if (sfxManager != null)
+            {
+                sfxManager.GetComponent<SFXManager>().PlayRandomEffect();
+            }
         }
     }
 
