@@ -5,6 +5,8 @@ using UnityEngine;
 public class Mover : MonoBehaviour
 {
 
+    public float _jumpForce = 10;
+
     public float _velocity = 1;
 
     private enum MoveDirection
@@ -50,9 +52,12 @@ public class Mover : MonoBehaviour
     {
         HandleInput();
 
-        if (transform.position.y < -3)
+        if (transform.position.y < -20f)
         {
-            transform.position.Set(transform.position.x, 1, transform.position.z);
+            Debug.Log("Should be resetting position");
+            transform.position = new Vector3(transform.position.x, 10, transform.position.z);
+            GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
     }
 
@@ -79,6 +84,7 @@ public class Mover : MonoBehaviour
     {
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
+        var jump = Input.GetAxis("Jump");
 
         bool isWalking = false;
 
@@ -104,12 +110,16 @@ public class Mover : MonoBehaviour
             moveMap[MoveDirection.Back]();
         }
 
+        if (jump != 0)
+        {
+            GetComponent<Rigidbody>().AddForce(transform.up * _jumpForce, ForceMode.Force);
+        }
+
         GetComponent<Animator>().SetBool("Walking", isWalking);
 
         // rotate the player according to camera direction
         Vector3 cameraDirection = Camera.main.transform.forward.normalized;
         Vector3 playerDirection = Vector3.ProjectOnPlane(cameraDirection, transform.up).normalized;
-        float angleToRotate = Vector3.Angle(transform.forward, playerDirection);
         transform.LookAt(playerDirection + transform.position);
     }
 }

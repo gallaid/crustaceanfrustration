@@ -140,7 +140,7 @@ public class WaterBehavior : MonoBehaviour
         for (int i = 0; i < originalVertices.Length; i++)
         {
             displacedVertices[i] = MoveVertices(originalVertices[i]);
-            
+
 
         }
         deformingMesh.vertices = displacedVertices;
@@ -152,13 +152,13 @@ public class WaterBehavior : MonoBehaviour
     Vector3 MoveVertices(Vector3 Vertex)
     {
         Vector3 attractorSpace;
-        attractorSpace=transform.InverseTransformPoint(water.transform.TransformPoint(Vertex));
+        attractorSpace = transform.InverseTransformPoint(water.transform.TransformPoint(Vertex));
         float distance = Vector3.Distance(attractorSpace, Vector3.zero);
         float distanceSq = Vector3.SqrMagnitude(attractorSpace);
-        if (distanceSq <= maxDistance*maxDistance)
+        if (distanceSq <= maxDistance * maxDistance)
         {
             float baseAngle = (curl) * Mathf.Pow(distanceSq, -falloff);
-            
+
             Quaternion rot = Quaternion.AngleAxis(baseAngle, Vector3.right);
             attractorSpace = rot * attractorSpace;
             Vertex = water.transform.InverseTransformPoint(transform.TransformPoint(attractorSpace));
