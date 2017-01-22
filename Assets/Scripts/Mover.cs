@@ -9,6 +9,8 @@ public class Mover : MonoBehaviour
 
     public float _velocity = 1;
 
+    private Vector3 _nextPosition;
+
     private enum MoveDirection
     {
         Forward,
@@ -22,28 +24,30 @@ public class Mover : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        _nextPosition = transform.position;
+
         moveMap.Add(MoveDirection.Forward,
         () =>
         {
-            transform.position += (transform.forward * Time.deltaTime * _velocity);
+            _nextPosition += (transform.forward * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Back,
         () =>
         {
-            transform.position += (-transform.forward * Time.deltaTime * _velocity);
+            _nextPosition += (-transform.forward * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Left,
         () =>
         {
-            transform.position += (-transform.right * Time.deltaTime * _velocity);
+            _nextPosition += (-transform.right * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Right,
         () =>
         {
-            transform.position += (transform.right * Time.deltaTime * _velocity);
+            _nextPosition += (transform.right * Time.deltaTime * _velocity);
         });
     }
 
@@ -52,33 +56,13 @@ public class Mover : MonoBehaviour
     {
         HandleInput();
 
-        if (transform.position.y < -20f)
+        if (transform.position.y < -9f)
         {
-            Debug.Log("Should be resetting position");
-            transform.position = new Vector3(transform.position.x, 10, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 2, transform.position.z);
             GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
-            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        //if (collision.gameObject.tag == "Environment")
-        //{
-        //    // get highest contact point
-        //    float max = collision.contacts[0].point.y;
-        //    foreach (var contact in collision.contacts)
-        //    {
-        //        if (contact.point.y > max)
-        //        {
-        //            max = contact.point.y;
-        //        }
-        //    }
-
-        //    // set the position to the highest contact point with plane axes unchanged
-        //    transform.position = new Vector3(transform.position.x, max, transform.position.z);
-        //}
-    }
+    } 
 
     private void HandleInput()
     {
@@ -87,6 +71,8 @@ public class Mover : MonoBehaviour
         var jump = Input.GetAxis("Jump");
 
         bool isWalking = false;
+
+        _nextPosition = transform.position;
 
         if (horizontal > 0)
         {
@@ -116,6 +102,8 @@ public class Mover : MonoBehaviour
         }
 
         GetComponent<Animator>().SetBool("Walking", isWalking);
+
+        GetComponent<Rigidbody>().MovePosition(_nextPosition);
 
         // rotate the player according to camera direction
         Vector3 cameraDirection = Camera.main.transform.forward.normalized;
