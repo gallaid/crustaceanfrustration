@@ -33,7 +33,13 @@ public class BigWaveMover : MonoBehaviour
         move();
 
         // reload scene once the position is approximately at the stop point
-        if (Mathf.Approximately(Vector3.Magnitude(stopPoint.transform.position - transform.position), 0f))
+        //if (Mathf.Approximately(Vector3.Magnitude(stopPoint.transform.position - transform.position), 0f))
+        //{
+        //    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        //}
+
+        // quick fix when above code didn't work
+        if (transform.position.z >= 1500)
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
