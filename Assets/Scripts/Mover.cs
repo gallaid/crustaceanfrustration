@@ -54,7 +54,8 @@ public class Mover : MonoBehaviour
 
         if (transform.position.y < -20f)
         {
-            transform.position.Set(transform.position.x, 10, transform.position.z);
+            Debug.Log("Should be resetting position");
+            transform.position = new Vector3(transform.position.x, 10, transform.position.z);
             GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
         }
