@@ -14,7 +14,7 @@ public class BigWaveMover : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        distance = stopPoint.transform.position.x - gameObject.transform.position.x;
+        distance = Vector3.Distance(stopPoint.transform.position,transform.position);
         speed = distance / (Minutes * 60);
         Mathf.Abs(speed);
     }
@@ -32,7 +32,8 @@ public class BigWaveMover : MonoBehaviour
     }
     private void move()
     {
-        gameObject.transform.Translate(Vector3.down * speed * Time.deltaTime);
+       transform.position= Vector3.MoveTowards(transform.position, stopPoint.transform.position, speed*Time.deltaTime);
+        //gameObject.transform.Translate(Vector3. * speed * Time.deltaTime);
         //transform.position=Vector3.Lerp(stopPoint.transform.position, gameObject.transform.position,1);
     }
 }

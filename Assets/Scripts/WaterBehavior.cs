@@ -159,7 +159,7 @@ public class WaterBehavior : MonoBehaviour
         {
             float baseAngle = (curl) * Mathf.Pow(distanceSq, -falloff);
             
-            Quaternion rot = Quaternion.AngleAxis(baseAngle, Vector3.back);
+            Quaternion rot = Quaternion.AngleAxis(baseAngle, Vector3.right);
             attractorSpace = rot * attractorSpace;
             Vertex = water.transform.InverseTransformPoint(transform.TransformPoint(attractorSpace));
             return (Vertex);
