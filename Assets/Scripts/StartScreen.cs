@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class StartScreen : MonoBehaviour {
 
+   public GameObject Player;
 	// Use this for initialization
 	void Start () {
 		
@@ -12,16 +13,19 @@ public class StartScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+        if (Player.transform.position.y < -2)
+        {
+            SceneManager.LoadScene(1);
+        }
+        if (Input.GetAxis("Quit") > 0)
+        {
+            print("Quit");
+            Application.Quit();
+        }
 	}
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Stackable")
-        {
-            print("here");
-            SceneManager.LoadScene(1);
-            
-        }
+
     }
 }
