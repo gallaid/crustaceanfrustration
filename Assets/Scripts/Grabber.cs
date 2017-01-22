@@ -122,6 +122,8 @@ public class Grabber : MonoBehaviour
 
     private void PickUpObject()
     {
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Grabbing");
+
         // set reference to object being held currently
         ObjectBeingHeld = _mostRecentObject;
 
