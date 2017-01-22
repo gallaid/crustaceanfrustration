@@ -27,6 +27,7 @@ public class BigWaveMover : MonoBehaviour
 
 
     }
+
     void FixedUpdate()
     {
         move();
@@ -37,6 +38,7 @@ public class BigWaveMover : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
+
     private void move()
     {
         transform.position = Vector3.MoveTowards(transform.position, stopPoint.transform.position, speed * Time.deltaTime);

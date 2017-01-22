@@ -30,28 +30,24 @@ public class Mover : MonoBehaviour
         () =>
         {
             _nextPosition += (transform.forward * Time.deltaTime * _velocity);
-            //GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Back,
         () =>
         {
             _nextPosition += (-transform.forward * Time.deltaTime * _velocity);
-            //GetComponent<Rigidbody>().MovePosition(transform.position + -transform.forward * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Left,
         () =>
         {
             _nextPosition += (-transform.right * Time.deltaTime * _velocity);
-            //GetComponent<Rigidbody>().MovePosition(transform.position + -transform.right * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Right,
         () =>
         {
             _nextPosition += (transform.right * Time.deltaTime * _velocity);
-            //GetComponent<Rigidbody>().MovePosition(transform.position + transform.right * Time.deltaTime * _velocity);
         });
     }
 
@@ -62,7 +58,6 @@ public class Mover : MonoBehaviour
 
         if (transform.position.y < -9f)
         {
-            Debug.Log("Should be resetting position");
             transform.position = new Vector3(transform.position.x, 2, transform.position.z);
             GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
