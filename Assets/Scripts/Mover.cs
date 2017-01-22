@@ -9,6 +9,8 @@ public class Mover : MonoBehaviour
 
     public float _velocity = 1;
 
+    private Vector3 _nextPosition;
+
     private enum MoveDirection
     {
         Forward,
@@ -22,28 +24,34 @@ public class Mover : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        _nextPosition = transform.position;
+
         moveMap.Add(MoveDirection.Forward,
         () =>
         {
-            transform.position += (transform.forward * Time.deltaTime * _velocity);
+            _nextPosition += (transform.forward * Time.deltaTime * _velocity);
+            //GetComponent<Rigidbody>().MovePosition(transform.position + transform.forward * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Back,
         () =>
         {
-            transform.position += (-transform.forward * Time.deltaTime * _velocity);
+            _nextPosition += (-transform.forward * Time.deltaTime * _velocity);
+            //GetComponent<Rigidbody>().MovePosition(transform.position + -transform.forward * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Left,
         () =>
         {
-            transform.position += (-transform.right * Time.deltaTime * _velocity);
+            _nextPosition += (-transform.right * Time.deltaTime * _velocity);
+            //GetComponent<Rigidbody>().MovePosition(transform.position + -transform.right * Time.deltaTime * _velocity);
         });
 
         moveMap.Add(MoveDirection.Right,
         () =>
         {
-            transform.position += (transform.right * Time.deltaTime * _velocity);
+            _nextPosition += (transform.right * Time.deltaTime * _velocity);
+            //GetComponent<Rigidbody>().MovePosition(transform.position + transform.right * Time.deltaTime * _velocity);
         });
     }
 
@@ -89,6 +97,8 @@ public class Mover : MonoBehaviour
 
         bool isWalking = false;
 
+        _nextPosition = transform.position;
+
         if (horizontal > 0)
         {
             isWalking = true;
@@ -117,6 +127,8 @@ public class Mover : MonoBehaviour
         }
 
         GetComponent<Animator>().SetBool("Walking", isWalking);
+
+        GetComponent<Rigidbody>().MovePosition(_nextPosition);
 
         // rotate the player according to camera direction
         Vector3 cameraDirection = Camera.main.transform.forward.normalized;
