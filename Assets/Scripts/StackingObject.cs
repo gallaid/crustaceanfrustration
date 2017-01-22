@@ -49,7 +49,8 @@ public class StackingObject : MonoBehaviour
 
             if (sfxManager != null)
             {
-                sfxManager.GetComponent<SFXManager>().PlayRandomEffect();
+                // too noisy
+                // sfxManager.GetComponent<SFXManager>().PlayRandomEffect();
             }
         }
     }
