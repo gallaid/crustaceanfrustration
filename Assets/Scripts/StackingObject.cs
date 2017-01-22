@@ -6,16 +6,24 @@ public class StackingObject : MonoBehaviour
 
     public float _timeToFreeze = 0.2f;
 
+    private GameObject dialogueManager;
+    private GameObject sfxManager;
+
     // Use this for initialization
     void Start()
     {
-
+        dialogueManager = GameObject.FindGameObjectWithTag("DialogueManager");
+        sfxManager = GameObject.FindGameObjectWithTag("SFXManager");
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (sfxManager == null || dialogueManager == null)
+        {
+            dialogueManager = GameObject.FindGameObjectWithTag("DialogueManager");
+            sfxManager = GameObject.FindGameObjectWithTag("SFXManager");
+        }
     }
 
     void OnCollisionEnter(Collision collision)
@@ -34,9 +42,16 @@ public class StackingObject : MonoBehaviour
                     collision.gameObject.GetComponent<Rigidbody>().constraints = newConstraints;
                 }
             };
+
             var timedAction = gameObject.AddComponent(typeof(TimedAction)) as TimedAction;
             timedAction._action = removeRigidBodyAction;
             timedAction.timer = _timeToFreeze;
+
+            if (sfxManager != null)
+            {
+                // too noisy
+                // sfxManager.GetComponent<SFXManager>().PlayRandomEffect();
+            }
         }
     }
 
@@ -44,7 +59,7 @@ public class StackingObject : MonoBehaviour
     {
         if (other.tag == "WorldEnder")
         {
-            Rigidbody rb= GetComponent<Rigidbody>();
+            Rigidbody rb = GetComponent<Rigidbody>();
             rb.useGravity = false;
             rb.AddForce(new Vector3(10000, 10000, 10000), ForceMode.Acceleration);
 

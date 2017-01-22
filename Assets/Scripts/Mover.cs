@@ -62,7 +62,7 @@ public class Mover : MonoBehaviour
             GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
-    } 
+    }
 
     private void HandleInput()
     {
