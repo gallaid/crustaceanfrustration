@@ -6,10 +6,12 @@ public class StackingObject : MonoBehaviour
 
     public float _timeToFreeze = 0.2f;
 
+    public GameObject dialogueManager;
+    public GameObject sfxManager;
+
     // Use this for initialization
     void Start()
     {
-
     }
 
     // Update is called once per frame
@@ -37,6 +39,8 @@ public class StackingObject : MonoBehaviour
             var timedAction = gameObject.AddComponent(typeof(TimedAction)) as TimedAction;
             timedAction._action = removeRigidBodyAction;
             timedAction.timer = _timeToFreeze;
+
+            sfxManager.GetComponent<SFXManager>().PlayRandomEffect();
         }
     }
 
@@ -44,7 +48,7 @@ public class StackingObject : MonoBehaviour
     {
         if (other.tag == "WorldEnder")
         {
-            Rigidbody rb= GetComponent<Rigidbody>();
+            Rigidbody rb = GetComponent<Rigidbody>();
             rb.useGravity = false;
             rb.AddForce(new Vector3(10000, 10000, 10000), ForceMode.Acceleration);
 

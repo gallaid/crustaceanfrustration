@@ -17,6 +17,8 @@ class DialogueManager : MonoBehaviour
 
     private float _timeSinceLastLine = 0f;
 
+    private int _numStacked = 0;
+
     void Start()
     {
         _currentDelay = UnityEngine.Random.Range(_delayMinInSeconds, _delayMaxInSeconds);
@@ -37,5 +39,10 @@ class DialogueManager : MonoBehaviour
             _currentDelay = UnityEngine.Random.Range(_delayMinInSeconds, _delayMaxInSeconds);
             _timeSinceLastLine = 0;
         }
+    }
+
+    public void IncrementNumStacked()
+    {
+        _numStacked += 1;
     }
 }
