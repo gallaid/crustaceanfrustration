@@ -62,26 +62,7 @@ public class Mover : MonoBehaviour
             GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        //if (collision.gameObject.tag == "Environment")
-        //{
-        //    // get highest contact point
-        //    float max = collision.contacts[0].point.y;
-        //    foreach (var contact in collision.contacts)
-        //    {
-        //        if (contact.point.y > max)
-        //        {
-        //            max = contact.point.y;
-        //        }
-        //    }
-
-        //    // set the position to the highest contact point with plane axes unchanged
-        //    transform.position = new Vector3(transform.position.x, max, transform.position.z);
-        //}
-    }
+    } 
 
     private void HandleInput()
     {
