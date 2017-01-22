@@ -39,4 +39,15 @@ public class StackingObject : MonoBehaviour
             timedAction.timer = _timeToFreeze;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "WorldEnder")
+        {
+            Rigidbody rb= GetComponent<Rigidbody>();
+            rb.useGravity = false;
+            rb.AddForce(new Vector3(10000, 10000, 10000), ForceMode.Acceleration);
+
+        }
+    }
 }

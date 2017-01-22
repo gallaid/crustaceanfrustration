@@ -52,12 +52,13 @@ public class Mover : MonoBehaviour
     {
         HandleInput();
 
-        if (transform.position.y < -20f)
+        if (transform.position.y < -9f)
         {
             Debug.Log("Should be resetting position");
-            transform.position = new Vector3(transform.position.x, 10, transform.position.z);
+            transform.position = new Vector3(transform.position.x, 2, transform.position.z);
             GetComponent<Rigidbody>().constraints |= RigidbodyConstraints.FreezePositionY;
             GetComponent<Rigidbody>().constraints = RigidbodyConstraints.None;
+            GetComponent<Rigidbody>().constraints = RigidbodyConstraints.FreezeRotation;
         }
     }
 
