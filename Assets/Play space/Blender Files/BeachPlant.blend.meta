@@ -1,0 +1,155 @@
+fileFormatVersion: 2
+guid: ea0212534414e30419b6a2b149a9bbdf
+timeCreated: 1485049613
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 1_Plantleaf
+    100002: 1_Plantleaf_001
+    100004: 1_Plantleaf_002
+    100006: 1_Plantleaf_003
+    100008: 1_Plantleaf_004
+    100010: 1_Plantleaf_005
+    100012: 1_Plantleaf_006
+    100014: 1_Plantleaf_007
+    100016: 1_Plantleaf_008
+    100018: 1_Plantleaf_009
+    100020: 1_Plantleaf_010
+    100022: 1_Plantleaf_011
+    100024: 1_Plantleaf_012
+    100026: 1_Plantleaf_013
+    100028: 1_Plantleaf_014
+    100030: 1_Plantleaf_015
+    100032: //RootNode
+    400000: 1_Plantleaf
+    400002: 1_Plantleaf_001
+    400004: 1_Plantleaf_002
+    400006: 1_Plantleaf_003
+    400008: 1_Plantleaf_004
+    400010: 1_Plantleaf_005
+    400012: 1_Plantleaf_006
+    400014: 1_Plantleaf_007
+    400016: 1_Plantleaf_008
+    400018: 1_Plantleaf_009
+    400020: 1_Plantleaf_010
+    400022: 1_Plantleaf_011
+    400024: 1_Plantleaf_012
+    400026: 1_Plantleaf_013
+    400028: 1_Plantleaf_014
+    400030: 1_Plantleaf_015
+    400032: //RootNode
+    2300000: 1_Plantleaf
+    2300002: 1_Plantleaf_001
+    2300004: 1_Plantleaf_002
+    2300006: 1_Plantleaf_003
+    2300008: 1_Plantleaf_004
+    2300010: 1_Plantleaf_005
+    2300012: 1_Plantleaf_006
+    2300014: 1_Plantleaf_007
+    2300016: 1_Plantleaf_008
+    2300018: 1_Plantleaf_009
+    2300020: 1_Plantleaf_010
+    2300022: 1_Plantleaf_011
+    2300024: 1_Plantleaf_012
+    2300026: 1_Plantleaf_013
+    2300028: 1_Plantleaf_014
+    2300030: 1_Plantleaf_015
+    3300000: 1_Plantleaf
+    3300002: 1_Plantleaf_001
+    3300004: 1_Plantleaf_002
+    3300006: 1_Plantleaf_003
+    3300008: 1_Plantleaf_004
+    3300010: 1_Plantleaf_005
+    3300012: 1_Plantleaf_006
+    3300014: 1_Plantleaf_007
+    3300016: 1_Plantleaf_008
+    3300018: 1_Plantleaf_009
+    3300020: 1_Plantleaf_010
+    3300022: 1_Plantleaf_011
+    3300024: 1_Plantleaf_012
+    3300026: 1_Plantleaf_013
+    3300028: 1_Plantleaf_014
+    3300030: 1_Plantleaf_015
+    4300000: 1_Plantleaf_015
+    4300002: 1_Plantleaf_014
+    4300004: 1_Plantleaf_013
+    4300006: 1_Plantleaf_012
+    4300008: 1_Plantleaf_011
+    4300010: 1_Plantleaf_010
+    4300012: 1_Plantleaf_009
+    4300014: 1_Plantleaf_008
+    4300016: 1_Plantleaf_007
+    4300018: 1_Plantleaf_006
+    4300020: 1_Plantleaf_005
+    4300022: 1_Plantleaf_004
+    4300024: 1_Plantleaf_003
+    4300026: 1_Plantleaf_002
+    4300028: 1_Plantleaf_001
+    4300030: 1_Plantleaf
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
