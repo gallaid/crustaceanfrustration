@@ -1,0 +1,201 @@
+fileFormatVersion: 2
+guid: 48b4f058a8347ce47b22098fe248da37
+timeCreated: 1484980308
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: 0_Beachplane
+    100002: 1_rock_000
+    100004: 1_rock_001
+    100006: 1_rock_002
+    100008: 1_rock_003
+    100010: 1_rock_004
+    100012: 1_rock_005
+    100014: 1_rock_006
+    100016: 1_rock_007
+    100018: 1_rock_008
+    100020: 1_rock_009
+    100022: 1_rock_010
+    100024: 1_rock_011
+    100026: 1_rock_012
+    100028: 1_rock_013
+    100030: 1_rock_014
+    100032: 1_rock_015
+    100034: 1_rock_016
+    100036: 1_rock_017
+    100038: 1_rock_018
+    100040: 1_rock_019
+    100042: //RootNode
+    400000: 0_Beachplane
+    400002: 1_rock_000
+    400004: 1_rock_001
+    400006: 1_rock_002
+    400008: 1_rock_003
+    400010: 1_rock_004
+    400012: 1_rock_005
+    400014: 1_rock_006
+    400016: 1_rock_007
+    400018: 1_rock_008
+    400020: 1_rock_009
+    400022: 1_rock_010
+    400024: 1_rock_011
+    400026: 1_rock_012
+    400028: 1_rock_013
+    400030: 1_rock_014
+    400032: 1_rock_015
+    400034: 1_rock_016
+    400036: 1_rock_017
+    400038: 1_rock_018
+    400040: 1_rock_019
+    400042: //RootNode
+    2300000: 0_Beachplane
+    2300002: 1_rock_000
+    2300004: 1_rock_001
+    2300006: 1_rock_002
+    2300008: 1_rock_003
+    2300010: 1_rock_004
+    2300012: 1_rock_005
+    2300014: 1_rock_006
+    2300016: 1_rock_007
+    2300018: 1_rock_008
+    2300020: 1_rock_009
+    2300022: 1_rock_010
+    2300024: 1_rock_011
+    2300026: 1_rock_012
+    2300028: 1_rock_013
+    2300030: 1_rock_014
+    2300032: 1_rock_015
+    2300034: 1_rock_016
+    2300036: 1_rock_017
+    2300038: 1_rock_018
+    2300040: 1_rock_019
+    3300000: 0_Beachplane
+    3300002: 1_rock_000
+    3300004: 1_rock_001
+    3300006: 1_rock_002
+    3300008: 1_rock_003
+    3300010: 1_rock_004
+    3300012: 1_rock_005
+    3300014: 1_rock_006
+    3300016: 1_rock_007
+    3300018: 1_rock_008
+    3300020: 1_rock_009
+    3300022: 1_rock_010
+    3300024: 1_rock_011
+    3300026: 1_rock_012
+    3300028: 1_rock_013
+    3300030: 1_rock_014
+    3300032: 1_rock_015
+    3300034: 1_rock_016
+    3300036: 1_rock_017
+    3300038: 1_rock_018
+    3300040: 1_rock_019
+    4300000: 1_rock_019
+    4300002: 1_rock_018
+    4300004: 1_rock_017
+    4300006: 1_rock_016
+    4300008: 1_rock_015
+    4300010: 1_rock_014
+    4300012: 1_rock_013
+    4300014: 1_rock_012
+    4300016: 1_rock_011
+    4300018: 1_rock_010
+    4300020: 1_rock_009
+    4300022: 1_rock_008
+    4300024: 1_rock_007
+    4300026: 1_rock_006
+    4300028: 1_rock_005
+    4300030: 1_rock_004
+    4300032: 1_rock_003
+    4300034: 0_Beachplane
+    4300036: 1_rock_000
+    4300038: 1_rock_001
+    4300040: 1_rock_002
+    6400000: 0_Beachplane
+    6400002: 1_rock_000
+    6400004: 1_rock_001
+    6400006: 1_rock_002
+    6400008: 1_rock_003
+    6400010: 1_rock_004
+    6400012: 1_rock_005
+    6400014: 1_rock_006
+    6400016: 1_rock_007
+    6400018: 1_rock_008
+    6400020: 1_rock_009
+    6400022: 1_rock_010
+    6400024: 1_rock_011
+    6400026: 1_rock_012
+    6400028: 1_rock_013
+    6400030: 1_rock_014
+    6400032: 1_rock_015
+    6400034: 1_rock_016
+    6400036: 1_rock_017
+    6400038: 1_rock_018
+    6400040: 1_rock_019
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
