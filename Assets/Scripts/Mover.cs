@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Mover : MonoBehaviour
 {
@@ -69,10 +70,16 @@ public class Mover : MonoBehaviour
         var horizontal = Input.GetAxis("Horizontal");
         var vertical = Input.GetAxis("Vertical");
         var jump = Input.GetAxis("Jump");
+        var quit = Input.GetAxis("Quit");
 
         bool isWalking = false;
 
         _nextPosition = transform.position;
+
+        if (quit != 0)
+        {
+            SceneManager.LoadScene(0);
+        }
 
         if (horizontal > 0)
         {

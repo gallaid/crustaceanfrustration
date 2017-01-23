@@ -144,6 +144,8 @@ public class Grabber : MonoBehaviour
     {
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("Grabbing");
 
+        GameObject.Find("HermitParticles").GetComponent<ParticleSystem>().Play();
+
         // set reference to object being held currently
         ObjectBeingHeld = _mostRecentObject;
 
@@ -165,6 +167,8 @@ public class Grabber : MonoBehaviour
 
     private void DropObject()
     {
+        GameObject.Find("HermitParticles").GetComponent<ParticleSystem>().Stop();
+
         // release object from parent
         ObjectBeingHeld.transform.parent = null;
 
@@ -181,6 +185,8 @@ public class Grabber : MonoBehaviour
 
     private void ThrowObject()
     {
+        GameObject.Find("HermitParticles").GetComponent<ParticleSystem>().Stop();
+
         // direction we'll throw the object is the forward vector of the camera
         Vector3 throwDirection = Camera.main.transform.forward.normalized;
 

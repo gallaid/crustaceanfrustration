@@ -8,4 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Play space/StartScreen/StartScreen.unity
   - enabled: 1
-    path: Assets/Play space/Spencers amazing wave.unity
+    path: Assets/gani_scene.unity
